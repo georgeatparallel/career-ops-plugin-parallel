@@ -1,7 +1,8 @@
 import { randomUUID } from 'node:crypto';
 
-const ENDPOINT = 'https://search.parallel.ai/mcp';
-const USER_AGENT = 'career-ops-plugin-parallel/0.1.0';
+const ENDPOINT = 'https://mcp.parallel.ai/mcp';
+const VERSION = '0.1.1';
+const USER_AGENT = `career-ops-plugin-parallel/${VERSION}`;
 
 // One object per conversation/research run, never per process or cached client.
 // Each search-hook invocation is a standalone run. Related research uses this API.
@@ -45,7 +46,7 @@ export function createResearchRun(ctx) {
   async function initialize() {
     const init = await rpc('initialize', {
       protocolVersion: '2025-03-26', capabilities: {},
-      clientInfo: { name: 'career-ops-plugin-parallel', version: '0.1.0' },
+      clientInfo: { name: 'career-ops-plugin-parallel', version: VERSION },
     });
     if (init.protocolVersion !== '2025-03-26') throw new Error('Unsupported MCP protocol version');
     await rpc('notifications/initialized', {}, true);

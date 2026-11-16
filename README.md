@@ -1,7 +1,7 @@
 # career-ops-plugin-parallel
 
 Opt-in public job, compensation and company research through
-[Parallel Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp).
+[Parallel MCP](https://docs.parallel.ai/integrations/mcp/quickstart).
 Search uses Fast mode. No account or API key is required. Free usage has quotas;
 errors stop the run without retrying or switching providers.
 
@@ -19,7 +19,10 @@ node plugins.mjs skill parallel
 
 Before registration, clone this repository into `plugins.local/parallel`, then
 run the same enable command. Review the capability card before confirming.
-Only `search.parallel.ai` is allowed, and all HTTP uses Career Ops' `ctx.fetch`.
+Only `mcp.parallel.ai` is allowed, and all HTTP uses Career Ops' `ctx.fetch`.
+After updating from `0.1.0`, run `node plugins.mjs enable parallel` to review
+the new hostname, then run `node plugins.mjs enable parallel --confirm`.
+
 No CV, tracker, pipeline, notes or credentials are read by this plugin.
 Only send public queries and public URLs; the query text and page URLs go to
 Parallel. No API keys are declared or sent. Existing search choices and core
