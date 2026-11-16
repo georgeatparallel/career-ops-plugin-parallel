@@ -22,8 +22,8 @@ const calls = [];
 const originalFetch = globalThis.fetch;
 let mode = 'ok';
 globalThis.fetch = async (url, opts) => {
- assert.equal(url, 'https://search.parallel.ai/mcp');
- assert.equal(opts.headers['User-Agent'], 'career-ops-plugin-parallel/0.1.0');
+ assert.equal(url, 'https://mcp.parallel.ai/mcp');
+ assert.equal(opts.headers['User-Agent'], 'career-ops-plugin-parallel/0.1.1');
  assert(opts.signal instanceof AbortSignal);
  const r = JSON.parse(opts.body); calls.push(r);
  if (mode === 'error') throw new Error('network failure');
@@ -60,5 +60,5 @@ try {
    const latest=calls.filter(r=>r.method==='tools/call').slice(-2);
    assert.equal(latest[0].params.arguments.session_id,latest[1].params.arguments.session_id);
  } finally {if(oldRoot===undefined)delete process.env.CAREER_OPS_ROOT;else process.env.CAREER_OPS_ROOT=oldRoot;}
- console.log(JSON.stringify({passed:true,requestObserved:true,userAgent:'career-ops-plugin-parallel/0.1.0',loaderVerified:true,disabledPreserved:true,guardedEgress:true,resultConsumed:true,timeoutVerified:true,requestCount:calls.length}));
+ console.log(JSON.stringify({passed:true,requestObserved:true,userAgent:'career-ops-plugin-parallel/0.1.1',loaderVerified:true,disabledPreserved:true,guardedEgress:true,resultConsumed:true,timeoutVerified:true,requestCount:calls.length}));
 } finally {globalThis.fetch=originalFetch;}

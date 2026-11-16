@@ -4,8 +4,8 @@ import plugin, { createResearchRun, searchResults } from '../index.mjs';
 const observed = [];
 let failure;
 const ctx = { fetch: async (url, opts) => {
-  assert.equal(url, 'https://search.parallel.ai/mcp');
-  assert.equal(opts.headers['User-Agent'], 'career-ops-plugin-parallel/0.1.0');
+  assert.equal(url, 'https://mcp.parallel.ai/mcp');
+  assert.equal(opts.headers['User-Agent'], 'career-ops-plugin-parallel/0.1.1');
   assert.equal(opts.timeoutMs, 15000);
   const request = JSON.parse(opts.body);
   observed.push(request);

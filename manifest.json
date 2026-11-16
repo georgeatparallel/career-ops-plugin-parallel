@@ -1,12 +1,12 @@
 {
   "id": "parallel",
   "name": "career-ops-plugin-parallel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "apiVersion": 1,
   "description": "Find public job and company research sources without a search API key.",
   "hooks": ["search"],
   "requiredEnv": [],
-  "allowedHosts": ["search.parallel.ai"],
+  "allowedHosts": ["mcp.parallel.ai"],
   "humanInTheLoop": true,
   "skill": "skill.md",
   "homepage": "https://github.com/georgeatparallel/career-ops-plugin-parallel"
